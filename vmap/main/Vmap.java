@@ -528,7 +528,7 @@ public class Vmap extends JFrame implements VmapMain {
 	}
 
 
-	private void extractZip(InputStream in,File todir) throws IOException,FileNotFoundException {
+	public void extractZip(InputStream in,File todir) throws IOException,FileNotFoundException {
 
 		File z=new File(todir,"newzip.zip");
 		FileOutputStream out = new FileOutputStream(z);
