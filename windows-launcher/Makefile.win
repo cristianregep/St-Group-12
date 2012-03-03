@@ -1,0 +1,33 @@
+# Project: vmap
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = vmap_private.res
+OBJ  = Vmap.o $(RES)
+LINKOBJ  = Vmap.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -mwindows  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = vmap.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before vmap.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "vmap.exe" $(LIBS)
+
+Vmap.o: Vmap.c
+	$(CC) -c Vmap.c -o Vmap.o $(CFLAGS)
+
+vmap_private.res: vmap_private.rc Icon1.rc 
+	$(WINDRES) -i vmap_private.rc --input-format=rc -o vmap_private.res -O coff 
