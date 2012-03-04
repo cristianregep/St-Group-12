@@ -468,7 +468,7 @@ public class Vmap extends JFrame implements VmapMain {
 		}
 	}
 
-	private String transpose(String input, char findChar, String replaceString) {
+	public String transpose(String input, char findChar, String replaceString) {
 		String res = new String();
 		for(int i = 0; i < input.length(); ++i) {
 			char d = input.charAt(i);

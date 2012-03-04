@@ -27,6 +27,18 @@ public class VMapTest extends TestCase {
 		
 		
 		Assert.assertEquals(equalByteStream(extractedFileBytes, realFileBytes), true);
+		assertEquals("Output should equal input", "words",
+                vmap.transpose("words", 'n', "sdrow"));
+		assertEquals("Output should equal input", "controller",
+                vmap.transpose("controller", 'a', "t"));
+
+		// All instances of 'i' should be changed to 'a'
+		assertEquals("Instances of 'i' changed for 'a'", "massassappa",
+                vmap.transpose("mississippi", 'i', "a"));
+
+		// All instances of l should be changed to 'yi'
+		assertEquals("Instances of 'l' changed for 'yi'", "wooyiyien",
+                vmap.transpose("woollen", 'l', "yi"));
 	}
 	
 	private boolean equalByteStream(byte[] b1, byte[]b2){
