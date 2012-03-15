@@ -3,16 +3,16 @@
  *See COPYING for Details
  *
  *This program is free software; you can redistribute it and/or
- *modify it under the terms of the GNU General Public License
+ *modify it under the terms of the GNU General public License
  *as published by the Free Software Foundation; either version 2
  *of the License, or (at your option) any later version.
  *
  *This program is distributed in the hope that it will be useful,
  *but WITHOUT ANY WARRANTY; without even the implied warranty of
  *MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *GNU General Public License for more details.
+ *GNU General public License for more details.
  *
- *You should have received a copy of the GNU General Public License
+ *You should have received a copy of the GNU General public License
  *along with this program; if not, write to the Free Software
  *Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
@@ -72,14 +72,15 @@ public class Vmap extends JFrame implements VmapMain {
 	public URL defaultPropsURL;
 	//    public static Properties defaultProps;
 	public static Properties props;
-	private JScrollPane scrollPane = new JScrollPane();
-	private MenuBar menuBar;
-	private JLabel status;
-	private Map filetypes;   //Hopefully obsolete. Used to store applications used to open different file types
-	private File autoPropertiesFile;
-	private File patternsFile;
-	private Identification id= new Identification();
-	private JDesktopPane desktop;
+	public JScrollPane scrollPane = new JScrollPane();
+	public MenuBar menuBar;
+	public JLabel status;
+	public Map filetypes;   //Hopefully obsolete. Used to store applications used to open different file types
+	public File autoPropertiesFile;
+	public File patternsFile;
+	public Identification id= new Identification();
+	public JDesktopPane desktop;
+	public String browser_command;
 
 	Controller c;//the one and only controller
 
@@ -452,7 +453,7 @@ public class Vmap extends JFrame implements VmapMain {
 			//                 urlString = urlString.replace('\\','/').replaceAll(" ","%20"); }
 			//             // ^ This is more of a heuristic than a "logical" code
 
-			String browser_command=new String();
+			browser_command=new String();
 			try {
 				// build string for default browser:
 				String correctedUrl = new String(url.toExternalForm());
@@ -488,7 +489,7 @@ public class Vmap extends JFrame implements VmapMain {
 			getRootPane().getGlassPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 			getRootPane().getGlassPane().setVisible(false); }}
 
-	private String getProgramForFile(String type) {
+	public String getProgramForFile(String type) {
 		if (filetypes == null) {
 			filetypes = new HashMap();
 			String raw = getProperty("filetypes");
